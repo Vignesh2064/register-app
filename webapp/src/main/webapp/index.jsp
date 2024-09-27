@@ -1,6 +1,6 @@
 <form action="action_page.php">
   <div class="container">
-    <h1>Thank you Thank You Thank You</h1>
+    <h1>Thank you Thank You Thank You--$</h1>
     <p>Please fill in this form to create an account.</p>
     <hr>
      
