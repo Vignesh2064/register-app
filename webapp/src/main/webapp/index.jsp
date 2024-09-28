@@ -177,5 +177,9 @@
     </div>
 </form>
 
+<div class="image-container">
+    <img src="SparkX.jpg" alt="SparkX Image">
+</div>
+
 </body>
 </html>
