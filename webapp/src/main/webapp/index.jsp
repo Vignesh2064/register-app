@@ -7,10 +7,46 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(to right); /* Gradient background */
-            color: #333;
             margin: 0;
             padding: 0;
+            /* Animated background */
+            background: linear-gradient(to right, #ff69b4, #33ccff);
+            animation: gradient-shift 10s infinite;
+            color: #333;
+        }
+
+        /* Animation keyframes */
+        @keyframes gradient-shift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes fade-in {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
         }
 
         .container {
@@ -22,17 +58,20 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             margin-top: 50px;
             opacity: 0.9; /* Slight transparency */
+            animation: fade-in 1s ease-in-out; /* Fade-in effect */
         }
 
         h1 {
             text-align: center;
             color: #4CAF50;
+            animation: bounce 2s infinite; /* Bounce effect */
         }
 
         label {
             font-weight: bold;
             margin-top: 10px;
             display: block;
+            animation: fade-in 0.5s ease-in-out; /* Fade-in for labels */
         }
 
         input[type="text"],
@@ -43,12 +82,14 @@
             border: 1px solid #ccc;
             border-radius: 5px;
             transition: border-color 0.3s;
+            animation: fade-in 1s ease-in-out; /* Fade-in for inputs */
         }
 
         input[type="text"]:focus,
         input[type="password"]:focus {
             border-color: #4CAF50;
             outline: none;
+            animation: bounce 0.5s; /* Bounce effect on focus */
         }
 
         .registerbtn {
@@ -61,6 +102,7 @@
             width: 100%;
             font-size: 16px;
             transition: background-color 0.3s;
+            animation: fade-in 1s ease-in-out; /* Fade-in for button */
         }
 
         .registerbtn:hover {
@@ -70,6 +112,7 @@
         .signin {
             text-align: center;
             margin-top: 20px;
+            animation: fade-in 1s ease-in-out; /* Fade-in for signin */
         }
 
         .signin a {
@@ -132,17 +175,7 @@
     <div class="container signin">
         <p>Already have an account? <a href="#">Sign in</a>.</p>
     </div>
-
-    <div class="footer">
-        <h1>Thank You! Thank You! Thank You!</h1>
-        <h1>Happy Learning</h1>
-    </div>
 </form>
-
-<!-- Image section -->
-<div class="image-container">
-    <img src="SparkX.jpg" alt="SparkX Image">
-</div>
 
 </body>
 </html>
