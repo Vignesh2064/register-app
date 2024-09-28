@@ -6,7 +6,7 @@ pipeline {
     }
     environment {
     APP_NAME = "devops-cicd-app-pipeline"
-        RELEASE = "1.0"
+        RELEASE = "1.0.0"
         DOCKER_USER = "vignesh2064"
         DOCKER_PASS = 'dockerhub'
         IMAGE_NAME = "${DOCKER_USER}" + "/" + "${APP_NAME}"
