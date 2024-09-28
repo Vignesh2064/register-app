@@ -1,18 +1,19 @@
 pipeline {
     agent { label 'jenkins-slave' }
     tools {
-        jdk 'JAVA17'
+        jdk 'Java17'
         maven 'Maven3'
     }
     environment {
     APP_NAME = "devops-cicd-app-pipeline"
-        RELEASE = "1.0.0"
+        RELEASE = "1.0"
         DOCKER_USER = "vignesh2064"
         DOCKER_PASS = 'dockerhub'
         IMAGE_NAME = "${DOCKER_USER}" + "/" + "${APP_NAME}"
         IMAGE_TAG = "${RELEASE}-${BUILD_NUMBER}"
         JENKINS_API_TOKEN = credentials("JENKINS_API_TOKEN")
     }
+
     stages{
         stage("Cleanup Workspace"){
                 steps {
@@ -88,11 +89,10 @@ pipeline {
        stage("Trigger CD Pipeline") {
             steps {
                 script {
-                    sh "curl -v -k --user Admin:${JENKINS_API_TOKEN} -X POST -H 'cache-control: no-cache' -H 'content-type: application/x-www-form-urlencoded' --data 'IMAGE_TAG=${IMAGE_TAG}' 'ec2-13-55-84-25.ap-southeast-2.compute.amazonaws.com:8080/job/DevOps-EKS-Project/buildWithParameters?token=trigger-token'"
+                    sh "curl -v -k --user Admin:${JENKINS_API_TOKEN} -X POST -H 'cache-control: no-cache' -H 'content-type: application/x-www-form-urlencoded' --data 'IMAGE_TAG=${IMAGE_TAG}' 'ec2-54-79-223-113.ap-southeast-2.compute.amazonaws.com:8080/job/Register-app-cd/buildWithParameters?token=trigger-token'"
                 }
             }
 	}
+
     }
 }
-
-
