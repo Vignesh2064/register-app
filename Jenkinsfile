@@ -13,27 +13,23 @@ pipeline {
         IMAGE_TAG = "${RELEASE}-${BUILD_NUMBER}"
         JENKINS_API_TOKEN = credentials("JENKINS_API_TOKEN")
     }
-
     stages{
-        stage("Cleanup Workspace"){
+        stage("Cleanup system Workspace"){
                 steps {
                 cleanWs()
                 }
         }
-
         stage("Checkout from SCM"){
                 steps {
                     git branch: 'main', credentialsId: 'github', url: 'https://github.com/Vignesh2064/register-app.git'
                 }
         }
-
         stage("Build Application"){
             steps {
                 sh "mvn clean package"
             }
 
        }
-
        stage("Test Application"){
            steps {
                  sh "mvn test"
@@ -74,7 +70,7 @@ pipeline {
        stage("Trivy Scan") {
            steps {
                script {
-	            sh ('docker run -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy image vignesh2064/devops-cicd-app-pipeline:latest --no-progress --scanners vuln  --exit-code 0 --severity HIGH,CRITICAL --format table')
+	            sh ('docker run -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy image vignesh2064/devops-eks-app-pipeline-project:latest --no-progress --scanners vuln  --exit-code 0 --severity HIGH,CRITICAL --format table')
                }
            }
        }
@@ -89,10 +85,9 @@ pipeline {
        stage("Trigger CD Pipeline") {
             steps {
                 script {
-                    sh "curl -v -k --user Admin:${JENKINS_API_TOKEN} -X POST -H 'cache-control: no-cache' -H 'content-type: application/x-www-form-urlencoded' --data 'IMAGE_TAG=${IMAGE_TAG}' 'ec2-13-55-84-25.ap-southeast-2.compute.amazonaws.com:8080/job/Register-app-cd/buildWithParameters?token=trigger-token'"
+                    sh "curl -v -k --user Admin:${JENKINS_API_TOKEN} -X POST -H 'cache-control: no-cache' -H 'content-type: application/x-www-form-urlencoded' --data 'IMAGE_TAG=${IMAGE_TAG}' 'ec2-13-239-43-18.ap-southeast-2.compute.amazonaws.com:8080/job/Register-app-CD/buildWithParameters?token=trigger-token'"
                 }
             }
 	}
-
     }
 }
