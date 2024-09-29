@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Form!</title>
+    <title>Registration Form</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -28,27 +28,6 @@
             }
         }
 
-        @keyframes fade-in {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-10px);
-            }
-            60% {
-                transform: translateY(-5px);
-            }
-        }
-
         .container {
             width: 50%;
             margin: auto;
@@ -58,20 +37,17 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             margin-top: 50px;
             opacity: 0.9; /* Slight transparency */
-            animation: fade-in 1s ease-in-out; /* Fade-in effect */
         }
 
         h1 {
             text-align: center;
             color: #4CAF50;
-            animation: bounce 2s infinite; /* Bounce effect */
         }
 
         label {
             font-weight: bold;
             margin-top: 10px;
             display: block;
-            animation: fade-in 0.5s ease-in-out; /* Fade-in for labels */
         }
 
         input[type="text"],
@@ -82,14 +58,12 @@
             border: 1px solid #ccc;
             border-radius: 5px;
             transition: border-color 0.3s;
-            animation: fade-in 1s ease-in-out; /* Fade-in for inputs */
         }
 
         input[type="text"]:focus,
         input[type="password"]:focus {
             border-color: #4CAF50;
             outline: none;
-            animation: bounce 0.5s; /* Bounce effect on focus */
         }
 
         .registerbtn {
@@ -102,7 +76,6 @@
             width: 100%;
             font-size: 16px;
             transition: background-color 0.3s;
-            animation: fade-in 1s ease-in-out; /* Fade-in for button */
         }
 
         .registerbtn:hover {
@@ -112,7 +85,6 @@
         .signin {
             text-align: center;
             margin-top: 20px;
-            animation: fade-in 1s ease-in-out; /* Fade-in for signin */
         }
 
         .signin a {
@@ -148,8 +120,8 @@
 
 <form action="action_page.php">
     <div class="container">
-        <h1>Welcome!</h1>
-        <p>Please fill in this form to create an account Demo</p>
+        <h1>Registration Form!</h1>
+        <p><b>Please fill in this form to create an account</b></p>
         <hr>
 
         <label for="Name"><b>Enter Name</b></label>
@@ -173,13 +145,4 @@
     </div>
 
     <div class="container signin">
-        <p>Already have an account? <a href="#">Sign in</a>.</p>
-    </div>
-</form>
-
-<div class="image-container">
-    <img src="SparkX.jpg" alt="SparkX Image">
-</div>
-
-</body>
-</html>
+        <p>Already have an account?
