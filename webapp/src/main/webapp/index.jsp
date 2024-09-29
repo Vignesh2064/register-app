@@ -145,4 +145,3 @@
     </div>
 
     <div class="container signin">
-        <p>Already have an account?
